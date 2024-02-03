@@ -51,9 +51,11 @@ img {
 .message-bar {
     background-color: #081b31;
     color:white;
-    font-size: 5rem;
     margin-top: 40px;
     display:inline-block;
     padding: 1rem;
     border-radius: 30px;
+}
+.message{
+    font-size: 5rem;
 }

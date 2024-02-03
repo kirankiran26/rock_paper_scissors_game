@@ -1,6 +1,11 @@
 let userscore=0;
 let compscore=0;
 let choises=document.querySelectorAll(".choise");
+let msg=document.querySelector(".message");
+let msgbar=document.querySelector(".message-bar");
+userscoreblock=document.querySelector("#userscoreid");
+compscoreblock=document.querySelector("#compscoreid");
+console.log(msg);
 choises.forEach((choise)=>{
     choise.addEventListener("click",()=>{
         userchoise=choise.getAttribute("ID");
@@ -20,7 +25,9 @@ const actuallgame=(userchoise)=> {
 }
 const chequingTheWinner = (userchoise, compluterchoiseop) => {
     if (userchoise === compluterchoiseop) {
-        console.log("No winner ");
+        msg.innerText="No Winner "
+        msgbar.style.backgroundColor="#081b31";
+        
     } else {
         let userwin = true;
         if (userchoise === "rock") {
@@ -32,15 +39,21 @@ const chequingTheWinner = (userchoise, compluterchoiseop) => {
             //scissor
             userwin = compluterchoiseop === "rock" ? false : true;
         }
-        showingWinner(userwin);
+        showingWinner(userwin ,userchoise,compluterchoiseop);
     }
 };
 
-const showingWinner=(userwin)=> {
+const showingWinner=(userwin,userchoise,compluterchoiseop)=> {
     if (userwin) {
-        console.log("You won ");
+       userscore++;
+       userscoreblock.innerText=userscore
+       msg.innerText=`You win! Your ${userchoise} beats ${compluterchoiseop}`;
+       msgbar.style.backgroundColor="blue"
     }
     else {
-        console.log("You lost ");
+        compscore++;
+        compscoreblock.innerText=compscore;
+        msg.innerText=`You lost! ${compluterchoiseop} beats your ${userchoise}`;
+        msgbar.style.backgroundColor="red"
     }
 }
