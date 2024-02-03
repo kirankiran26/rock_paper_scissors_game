@@ -7,25 +7,24 @@ let userscoreblock=document.querySelector("#userscoreid");
 let compscoreblock=document.querySelector("#compscoreid");
 let leadintlagingbt=document.querySelector(".leadintlaging");
 let restartbt=document.querySelector(".restart");
-console.log(restartbt.innerText);
 choises.forEach((choise)=>{
     choise.addEventListener("click",()=>{
         userchoise=choise.getAttribute("ID");
         actuallgame(userchoise);
-    })
-})
+    });
+});
 const compluterchoise=()=> {
     let options=["paper","rock","scissor"];
     let ran=Math.floor(Math.random()*3);
-    return options[ran]
-}
+    return options[ran];
+};
 const actuallgame=(userchoise)=> {
     let compluterchoiseop=compluterchoise();
     chequingTheWinner(userchoise, compluterchoiseop);
-}
+};
 const chequingTheWinner = (userchoise, compluterchoiseop) => {
     if (userchoise === compluterchoiseop) {
-        msg.innerText="No Winner "
+        msg.innerText="No Winner ";
         msgbar.style.backgroundColor="#081b31";
         
     } else {
@@ -57,7 +56,7 @@ const showingWinner=(userwin,userchoise,compluterchoiseop)=> {
         msgbar.style.backgroundColor="red"
     }
     leadingorlaggingmsg(userscore,compscore);
-}
+};
 const leadingorlaggingmsg =(userscore,compscore)=> {
     
     if (userscore===compscore) {
@@ -77,13 +76,14 @@ const leadingorlaggingmsg =(userscore,compscore)=> {
         leadintlagingbt.classList.remove("hide")
     }
     
-}
+};
 const resetfun=()=> {
     userscore=0;
     compscore=0;
     userscoreblock.innerText=0;
     compscoreblock.innerText=0;
     msg.innerText="Your Turn";
+    msgbar.style.backgroundColor="#081b31"
     leadintlagingbt.classList.add("hide")
 };
-restartbt.addEventListener("click",resetfun)
+restartbt.addEventListener("click",resetfun);
