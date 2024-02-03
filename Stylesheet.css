@@ -9,9 +9,19 @@ h1{
     height: 5rem;
     line-height: 5rem;
 }
+.choise:hover {
+    cursor: pointer;
+    background-color: #081b31;
+    opacity: 0.5;
+}
 .choise{
     height: 170px;
     width: 170px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 img {
     height: 150px;
@@ -25,4 +35,25 @@ img {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 40px;
+    gap: 35px;
+}
+.score-boadrd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    gap: 60px;
+    margin-top: 40px;
+}
+#userscore,#compscore{
+    font-size: 5rem;
+}
+.message-bar {
+    background-color: #081b31;
+    color:white;
+    font-size: 5rem;
+    margin-top: 40px;
+    display:inline-block;
+    padding: 1rem;
+    border-radius: 30px;
 }
