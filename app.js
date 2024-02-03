@@ -3,9 +3,9 @@ let compscore=0;
 let choises=document.querySelectorAll(".choise");
 let msg=document.querySelector(".message");
 let msgbar=document.querySelector(".message-bar");
-userscoreblock=document.querySelector("#userscoreid");
-compscoreblock=document.querySelector("#compscoreid");
-console.log(msg);
+let userscoreblock=document.querySelector("#userscoreid");
+let compscoreblock=document.querySelector("#compscoreid");
+let leadintlagingbt=document.querySelector(".leadintlaging");
 choises.forEach((choise)=>{
     choise.addEventListener("click",()=>{
         userchoise=choise.getAttribute("ID");
@@ -18,9 +18,7 @@ const compluterchoise=()=> {
     return options[ran]
 }
 const actuallgame=(userchoise)=> {
-    console.log("User choise ",userchoise);
     let compluterchoiseop=compluterchoise();
-    console.log("Compluter choise ", compluterchoiseop);
     chequingTheWinner(userchoise, compluterchoiseop);
 }
 const chequingTheWinner = (userchoise, compluterchoiseop) => {
@@ -56,4 +54,25 @@ const showingWinner=(userwin,userchoise,compluterchoiseop)=> {
         msg.innerText=`You lost! ${compluterchoiseop} beats your ${userchoise}`;
         msgbar.style.backgroundColor="red"
     }
+    leadingorlaggingmsg(userscore,compscore);
+}
+const leadingorlaggingmsg =(userscore,compscore)=> {
+    
+    if (userscore===compscore) {
+        leadintlagingbt.style.backgroundColor="lightgrey"
+        leadintlagingbt.innerText="Draw"
+        leadintlagingbt.classList.remove("hide")
+
+    }
+    else if(userscore>compscore) {
+        leadintlagingbt.innerText="Your are leading "
+        leadintlagingbt.classList.remove("hide")
+        leadintlagingbt.style.backgroundColor="aqua"
+    }
+    else {
+        leadintlagingbt.style.backgroundColor="red"
+        leadintlagingbt.innerText="Compluter is leading "
+        leadintlagingbt.classList.remove("hide")
+    }
+    
 }
