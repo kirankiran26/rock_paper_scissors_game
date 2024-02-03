@@ -6,6 +6,8 @@ let msgbar=document.querySelector(".message-bar");
 let userscoreblock=document.querySelector("#userscoreid");
 let compscoreblock=document.querySelector("#compscoreid");
 let leadintlagingbt=document.querySelector(".leadintlaging");
+let restartbt=document.querySelector(".restart");
+console.log(restartbt.innerText);
 choises.forEach((choise)=>{
     choise.addEventListener("click",()=>{
         userchoise=choise.getAttribute("ID");
@@ -76,3 +78,12 @@ const leadingorlaggingmsg =(userscore,compscore)=> {
     }
     
 }
+const resetfun=()=> {
+    userscore=0;
+    compscore=0;
+    userscoreblock.innerText=0;
+    compscoreblock.innerText=0;
+    msg.innerText="Your Turn";
+    leadintlagingbt.classList.add("hide")
+};
+restartbt.addEventListener("click",resetfun)
